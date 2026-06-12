@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خطة الدراسة</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <img class="brand-logo" src="kfu-logo.png" alt="KFU Logo">
+        <div>
+          <strong>خطة الدراسة</strong>
+          <span>كلية الآداب - الجغرافيا ونظم المعلومات الجغرافية</span>
+        </div>
+      </div>
+      <nav class="nav-actions" aria-label="إجراءات رئيسية">
+        <button class="ghost-button" id="themeToggle" type="button">الوضع الرسمي الداكن</button>
+        <button class="ghost-button" id="resetButton" type="button">إعادة تعيين</button>
+        <button class="primary-button" id="downloadPdfButton" type="button">تحميل تقرير PDF</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero view active" id="homeView">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">برنامج بكالوريوس تفاعلي</p>
+          <h1>خطة الدراسة</h1>
+          <p>
+            تابع إنجاز مقرراتك حسب المستويات الدراسية، واحفظ تقدمك محليًا، ثم حمّل تقريرًا رسميًا باسم الطالب.
+          </p>
+          <button class="primary-button large" id="startButton" type="button">ابدأ</button>
+        </div>
+        <div class="summary-panel" aria-label="ملخص الخطة">
+          <span>إجمالي المقررات</span>
+          <strong id="totalCoursesHero">70</strong>
+          <div class="mini-stats">
+            <span><b id="totalHoursHero">0</b> ساعة</span>
+            <span><b id="remainingSubjectsHero">0</b> مقرر متبقي</span>
+          </div>
+          <small>موزعة حسب مستويات الخطة والمقررات الاختيارية</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="levelsView">
+      <div class="container section-head">
+        <div>
+          <p class="eyebrow">مرحبًا <span id="studentNameLabel">بالطالب</span></p>
+          <h2>المستويات الدراسية</h2>
+        </div>
+        <div class="overall-card">
+          <span>التقدم الكلي</span>
+          <strong id="overallProgressText">0%</strong>
+          <div class="overall-stats">
+            <span>المقررات: <b id="overallCoursesText">0 / 0</b></span>
+            <span>الساعات: <b id="overallHoursText">0 / 0</b></span>
+            <span>المتبقي: <b id="overallRemainingText">0</b></span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="overallProgressBar"></div>
+          </div>
+        </div>
+      </div>
+      <div class="container levels-grid" id="levelsGrid"></div>
+    </section>
+
+    <section class="view" id="coursesView">
+      <div class="container courses-head">
+        <button class="back-button" id="backToLevelsButton" type="button">رجوع</button>
+        <div>
+          <p class="eyebrow" id="selectedYearText"></p>
+          <h2 id="selectedLevelTitle"></h2>
+        </div>
+        <div class="level-progress-card">
+          <span>إنجاز المستوى</span>
+          <strong id="selectedLevelProgress">0%</strong>
+          <div class="overall-stats compact">
+            <span>الساعات: <b id="selectedLevelHours">0 / 0</b></span>
+            <span>المتبقي: <b id="selectedLevelRemaining">0</b></span>
+          </div>
+        </div>
+      </div>
+      <div class="container courses-list" id="coursesList"></div>
+    </section>
+  </main>
+
+  <dialog class="name-dialog" id="nameDialog">
+    <form method="dialog" class="dialog-card" id="nameForm">
+      <h2>اسم الطالب</h2>
+      <p>يرجى إدخال الاسم ليتم حفظه وإضافته إلى تقرير PDF.</p>
+      <input id="studentNameInput" type="text" autocomplete="name" placeholder="مثال: أحمد محمد" required>
+      <menu>
+        <button class="ghost-button" id="cancelNameButton" value="cancel" type="button">إلغاء</button>
+        <button class="primary-button" value="confirm" type="submit">حفظ</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="curriculum-data.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
